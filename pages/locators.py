@@ -4,10 +4,12 @@ from selenium.webdriver.common.by import By
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_LINK = (By.CSS_SELECTOR, "a[href*='basket']")
 
 
 class MainPageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "a[href*='login']")
+
 
 
 class LoginPageLocators:
@@ -27,3 +29,7 @@ class ProductPageLocators:
     TITLE_PRODUCT = (By.CSS_SELECTOR, ".product_main h1")
     BASKET_SUM = (By.CSS_SELECTOR, ".alert:last-child strong")
     PRICE_PRODUCT = (By.CSS_SELECTOR, "p.price_color")
+
+class BasketPageLocators:
+    BASKET_TITLE = (By.CSS_SELECTOR, ".basket-title")
+    BASKET_TEXT = (By.CSS_SELECTOR, "#content_inner p")
