@@ -1,3 +1,5 @@
+import time
+
 from .base_page import BasePage
 from .locators import LoginPageLocators
 
@@ -24,3 +26,9 @@ class LoginPage(BasePage):
                 self.is_element_present(*LoginPageLocators.REGISTRATION_PASSWORD_INPUT) ==
                 self.is_element_present(*LoginPageLocators.REGISTRATION_PASSWORD_RETRY_INPUT) ==
                 self.is_element_present(*LoginPageLocators.REGISTRATION_BUTTON)), "Registration form not detect!"
+
+    def register_new_user(self, email, password):
+        self.browser.find_element(*LoginPageLocators.REGISTRATION_LOGIN_INPUT).send_keys(email)
+        self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWORD_INPUT).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWORD_RETRY_INPUT).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REGISTRATION_BUTTON).click()
